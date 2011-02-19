@@ -60,8 +60,9 @@
 	};
 	
 	$.fn.activity.getOpacity = function(opts, i) {
-		var steps = opts.steps || opts.segments-1;
+		var steps = opts.segments - opts.steps || opts.segments - 1;
 		var end = opts.opacity !== undefined ? opts.opacity : 1/steps;
+		i = steps - i;
 		return 1 - Math.min(i, steps) * (1 - end) / steps;
 	};
 	
